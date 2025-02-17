@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance CADD - Activities</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .active {
+            background-color: #4A5568; /* Tailwind's gray-700 */
+        }
+        #search-bar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <div class="flex flex-1">
+        <!-- Sidebar -->
+        <div class="w-64 bg-gray-800 text-white flex flex-col fixed md:relative z-20 md:z-auto inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition-transform duration-200 ease-in-out" id="sidebar">
+            <div class="p-4 text-2xl font-bold border-b border-gray-700 flex justify-between items-center">
+                Advance CADD
+                <button class="text-gray-400 hover:text-white md:hidden" id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="flex-1 p-4">
+                <ul>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 hover:bg-gray-700 rounded">
+                            <i class="fas fa-home mr-2"></i> Home
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 hover:bg-gray-700 rounded">
+                            <i class="fas fa-file-alt mr-2"></i> Templates
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 hover:bg-gray-700 rounded active">
+                            <i class="fas fa-tasks mr-2"></i> Activities
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 hover:bg-gray-700 rounded">
+                            <i class="fas fa-envelope mr-2"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+                <div class="mt-4 md:hidden">
+                    <input type="text" placeholder="Search..." class="w-full p-2 rounded bg-gray-700 text-white placeholder-gray-400">
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Top Navbar -->
+            <div class="bg-white shadow p-4 flex justify-between items-center">
+                <div class="text-xl font-bold">Advance CADD</div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600 hover:text-gray-800 md:hidden" id="menu-button">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="relative hidden md:block">
+                        <button class="text-gray-600 hover:text-gray-800" id="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div id="search-bar" class="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded p-2">
+                            <input type="text" placeholder="Search..." class="w-full p-2 rounded bg-gray-200 text-gray-800 placeholder-gray-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="flex-1 p-6 bg-gray-100 overflow-y-auto flex items-center justify-center">
+                <div class="text-center">
+                    <h1 class="text-3xl font-bold mb-4">Activities</h1>
+                    <p class="text-xl">Coming Soon...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-4 sticky bottom-0">
+        &copy; <span id="current-year"></span> Advance CADD. All rights reserved.
+    </footer>
+
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        document.getElementById('close-sidebar').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.add('-translate-x-full');
+        });
+
+        document.getElementById('search-button').addEventListener('click', function() {
+            var searchBar = document.getElementById('search-bar');
+            searchBar.style.display = searchBar.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
